@@ -6,6 +6,8 @@ export const CategorySearchBar = ({setResults, events, categories}) => {
     
         const [searchTerm, setSearchTerm] = useState("")
         const [selectedCategory, setSelectedCategory] = useState("")
+
+        const [selectedButton, setSelectedButton] = useState(null);
        
 
     const handleChange = (value=searchTerm, category=selectedCategory) => {
@@ -21,6 +23,11 @@ export const CategorySearchBar = ({setResults, events, categories}) => {
         setResults(results)
     }
 
+    const handleClick = (id) => {
+        setSelectedButton(id);
+      };
+
+
     return (
         <Box>
              <Input 
@@ -34,8 +41,14 @@ export const CategorySearchBar = ({setResults, events, categories}) => {
 
                 {categories.map((category) => (
                     <Button
-                    onClick={() => handleChange(searchTerm, category.id)}
+                    onClick={() => {handleChange(searchTerm, category.id); handleClick(category.id)}}
                     key={category.id}
+                    style={{
+                        backgroundColor: selectedButton === category.id ? 'grey' : 'lightgray', // Kleur op basis van selectie
+                        color: 'white',
+                        padding: '10px 20px',
+                        margin: '5px',
+                      }}
                     >
                         {category.name}
                     </Button>
@@ -138,3 +151,20 @@ const filteredEvents = events.filter((event) => {
     //     console.log("Zoekbalk:", e.target.value);
     //     handleChange(e.target.value, selectedCategory);
     // }}
+
+
+
+    // console.log("changeColor1", changeColor)
+
+    // const handleClick = (category=selectedCategory) => { 
+    //     setSelectedCategory(category)
+    //     setChangeColor(true)
+    //     console.log("categorie", category)
+
+
+
+    //     const joe = changeColor ? "lightgrey" : "blue"
+    //     console.log("changeColor", changeColor)
+    //     console.log("kleur:", joe)
+        
+    // }  

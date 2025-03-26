@@ -15,7 +15,7 @@
     {
       "id": "1",
       "createdBy": 1,
-      "title": "Trampoline party122",
+      "title": "Trampoline party1224",
       "description": "Bounce around with your friends",
       "image": "https://i.pinimg.com/736x/3d/2f/af/3d2faf4e3188d34a9fcdc00df59e77b0.jpg",
       "categoryIds": [
@@ -93,7 +93,7 @@
     },
     {
       "id": "b99c",
-      "title": "23123",
+      "title": "231236",
       "description": "123123",
       "location": "123123",
       "startTime": "12312",
@@ -102,7 +102,99 @@
         2
       ],
       "createdBy": 3,
-      "image": 0.5218683528251884
+      "image": 0.5218683528251884,
+      "category": []
+    },
+    {
+      "id": "ad71",
+      "title": "laatste event",
+      "description": "joee",
+      "location": "ams",
+      "startTime": "1200",
+      "endTime": "1300",
+      "categoryIds": [
+        1
+      ],
+      "createdBy": 3,
+      "image": 0.9999696153292397
+    },
+    {
+      "id": "00b0",
+      "title": "hallooo123",
+      "description": "123",
+      "location": "123",
+      "startTime": "123",
+      "endTime": "123",
+      "categoryIds": [
+        3
+      ],
+      "createdBy": 3,
+      "image": 0.9144827050776401
+    },
+    {
+      "id": "c980",
+      "title": "hoi1",
+      "description": "hoi2",
+      "location": "hoi3",
+      "startTime": "1",
+      "endTime": "1",
+      "categoryIds": [
+        1
+      ],
+      "createdBy": 2,
+      "image": 0.8481280709272387
+    },
+    {
+      "id": "265f",
+      "title": "22",
+      "description": "2",
+      "location": "2",
+      "startTime": "22",
+      "endTime": "2",
+      "categoryIds": [
+        1
+      ],
+      "createdBy": 3,
+      "image": 0.7731125738654436
+    },
+    {
+      "id": "a8af",
+      "title": "9",
+      "description": "9",
+      "location": "9",
+      "startTime": "9",
+      "endTime": "9",
+      "categoryIds": [
+        2
+      ],
+      "createdBy": 1,
+      "image": 0.11961656962791145
+    },
+    {
+      "id": "1019",
+      "title": "0",
+      "description": "0",
+      "location": "0",
+      "startTime": "0",
+      "endTime": "0",
+      "categoryIds": [
+        2
+      ],
+      "createdBy": 3,
+      "image": 0.19208463136131249
+    },
+    {
+      "id": "ef40",
+      "title": "7",
+      "description": "7",
+      "location": "7",
+      "startTime": "7",
+      "endTime": "7",
+      "categoryIds": [
+        2
+      ],
+      "createdBy": 1,
+      "image": 0.6186683727509454
     }
   ],
   "categories": [

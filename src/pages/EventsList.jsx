@@ -5,7 +5,8 @@ import { SearchResultsList } from "../components/SearchResultsList";
 import { useState } from "react";
 import { useMediaQuery } from "@chakra-ui/react";
 import { CategorySearchBar } from "../components/CategorySearchBar";
-import { Heading, Center, Box, Flex } from "@chakra-ui/react";
+import { Heading, Box, Flex } from "@chakra-ui/react";
+
 
 export const loader = async () => {
   const events = await fetch("http://localhost:3000/events");
@@ -31,7 +32,7 @@ export const EventsList = () => {
   //Center: align-items={"center"} display={"flex"} flex-wrap={"wrap"}
   //Box searchresult: align-items={"center"}  flex-wrap={"wrap"}
   return (
-    <Center bgColor="#ECECEC" minHeight="100vh">
+    <Box bgColor="#ECECEC" minHeight="100vh">
       <Box>
         <Flex justifyContent={"center"}>
           <Heading
@@ -48,6 +49,7 @@ export const EventsList = () => {
             events={events}
             categories={categories}
           />
+          <AddEvent AddEvent={AddEvent} />
         </Flex>
 
         <Box height={"100%"} width={"100%"} padding="10px">
@@ -60,14 +62,14 @@ export const EventsList = () => {
         <Box>
           <Flex
             margin={"20px"}
-            alignContent={"center"}
+        
             justifyContent={"center"}
           >
-            <AddEvent AddEvent={AddEvent} />
+            
           </Flex>
         </Box>
       </Box>
-    </Center>
+    </Box>
   );
 };
 

@@ -16,6 +16,7 @@ import {
     ModalCloseButton,
     useDisclosure
   } from '@chakra-ui/react'
+  import { useLoaderData } from "react-router-dom";
 
 export const AddEvent = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -52,6 +53,16 @@ const wholeNumberString = () => {
     
 }
 
+const loader = async ({ params }) => {
+  const events = await fetch(`http://localhost:3000/events`);
+  return {
+    events: await events.json(),
+  };
+}
+
+const { events } = useLoaderData();
+
+
 
   const onClickAddEvent = (events) => {
     events.preventDefault();
@@ -82,13 +93,13 @@ const wholeNumberString = () => {
       })
         .then((res) => {
           console.log("res:", res)
-          navigate("/");
+          navigate(`/${[-1]}`);
         })
         .catch((err) => {
           console.log("err:", err)
         });
 }
-
+console.log("aantal events:", events.length)
   return (
     <>
       <Button onClick={onOpen}>Add Event</Button>

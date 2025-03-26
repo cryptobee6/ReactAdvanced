@@ -50,18 +50,18 @@ const onDeleteEventClicked = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>Delete Event</Button>
+      <Button onClick={onOpen} colorScheme="red"  >Delete Event</Button>
 
       <Modal isOpen={isOpen} onClose={onClose} onSubmit={onClose} >
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Do you want to delete the event?</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-                <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit' onClick={(events) => {onDeleteEventClicked(events)}} >
+          <ModalCloseButton  />
+          <ModalBody  >
+                <Button mt={4} colorScheme='teal' margin='10px' isLoading={isSubmitting} type='submit' onClick={(events) => {onDeleteEventClicked(events)}} >
                     Delete Event
                 </Button>
-                <Button mt={4} colorScheme='red' isLoading={isSubmitting} type='submit' onClick={() =>onClose()}>
+                <Button mt={4} colorScheme='orange' margin='10px' isLoading={isSubmitting} type='submit' onClick={() =>onClose()}>
                     Cancel
                 </Button>
           </ModalBody>

@@ -16,6 +16,7 @@ import {
     ModalCloseButton,
     useDisclosure
   } from '@chakra-ui/react'
+  import { useLoaderData } from "react-router-dom";
 
 
 export const EditEvent = ({events, eventDetails}) => {
@@ -26,6 +27,7 @@ export const EditEvent = ({events, eventDetails}) => {
   const [titleToEdit, setEventTitle] = useState(eventDetails.title);
   const [description, setDescription] = useState(eventDetails.description);
   const [location, setLocation] = useState(eventDetails.location);
+  const [category, setCategory] = useState(eventDetails.categoryIds);
   const [startTime, setStartTime] = useState(eventDetails.startTime);
   const [endTime, setEndTime] = useState(eventDetails.endTime);
 
@@ -42,6 +44,7 @@ export const EditEvent = ({events, eventDetails}) => {
             location: location,
             startTime: startTime,
             endTime: endTime,
+            category: category,
 
          })
       })
@@ -58,29 +61,34 @@ export const EditEvent = ({events, eventDetails}) => {
         
 }
 
-// console.log(eventDetails ===)
-//zijn de update en de bestaande ooit gelijk aan elkaar?
+const loader = async ({ params }) => {
+  const categories = await fetch(`http://localhost:3000/categories`);
+  return {
+    categories: await categories.json(),
+  };
+}
 
+const { categories } = useLoaderData();
+
+  const getCategoryNames = (categoryIds) => {
+    console.log("categoryIds:", categoryIds);
+    return categoryIds.map((id) => {
+      const category = categories.find((cat) => Number(cat.id) === Number(id));
+      return category ? category.name : "Unknown";
+    });
+  };
 
 console.log("events:", events)
-
 console.log("totaleobject:", eventDetails)
 console.log("event_Editpagetitle", eventDetails.title)
 console.log("joeeeTitleInput:", titleToEdit)
-
 console.log("totaleobject:", eventDetails)
 console.log("event_Editpagelocation", eventDetails.location)
 console.log("joeeeLocationInput:", location)
+console.log("category:", events.categoryIds)
 
 
-// const manageInput = (varial) => {
-//   if(varial){
-//     eventDetails.title
-//   }
-//   varial
-  
-// }
-// console.log("eindoordeel", manageInput(titleToEdit))
+
 
   return (
     <>
@@ -111,6 +119,12 @@ console.log("joeeeLocationInput:", location)
                     id='name'                    
                     onChange={e => setLocation(e.target.value)}
                     defaultValue={eventDetails.location}
+                    />
+                    <FormLabel htmlFor='name'>Category</FormLabel>
+                    <Input
+                    id='name'                   
+                    onChange={e => setCategory(e.target.value)}
+                    defaultValue={getCategoryNames(events.categoryIds)}
                     />
                     <FormLabel htmlFor='name'>Starttime</FormLabel>
                     <Input

@@ -81,7 +81,7 @@ export const EventPage = () => {
           </Box>
         </Flex>
         <Box>
-          <Flex alignContent={"center"} justifyContent={"center"}>
+          <Flex alignContent={"center"} justifyContent={"center"} gap="10">
             <EditEvent
               margin="10px"
               events={events}
